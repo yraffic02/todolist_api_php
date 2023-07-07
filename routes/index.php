@@ -1,7 +1,11 @@
 <?php
-require_once '../config/database.php';
-require_once '../includes/header.php';
 
-include 'tasks.php';
+$request_uri = $_SERVER['REQUEST_URI'];
+
+if (strpos($request_uri, '/tasks') !== false) {
+    require_once 'tasks.php';
+} else {
+    echo 'API não encontrada.';
+}
 
 ?>
