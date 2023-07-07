@@ -1,20 +1,29 @@
-Documentação da API CRUD do "To-Do List"
-A API CRUD do "To-Do List" permite realizar operações básicas (Criar, Ler, Atualizar e Excluir) em tarefas, com os campos "title" e "description". Esta documentação descreve as rotas disponíveis e os formatos de solicitação e resposta utilizados.
+# API CRUD do "To-Do List"
 
-Base URL
-arduino
-Copy code
+A API CRUD do "To-Do List" permite realizar operações básicas (Criar, Ler, Atualizar e Excluir) em tarefas, com os campos "title" e "description". Esta API foi desenvolvida em PHP e segue o padrão REST.
+
+## Requisitos
+
+- PHP >= 7.0
+- Servidor web (por exemplo, Apache)
+
+## Configuração
+
+1. Clone este repositório para o seu servidor web.
+2. Configure a conexão com o banco de dados no arquivo `db.php`.
+3. Inicie seu servidor web.
+
+## Base URL
+
 http://localhost/tasks
-Rotas
-Listar todas as tarefas
-sql
-Copy code
-GET /
-Retorna uma lista de todas as tarefas cadastradas.
 
-Exemplo de resposta
-makefile
-Copy code
+
+## Rotas
+
+GET /
+
+### Listar todas as tarefas
+
 Status: 200 OK
 Content-Type: application/json
 
@@ -30,46 +39,35 @@ Content-Type: application/json
         "description": "Descrição da Tarefa 2"
     }
 ]
-Criar uma nova tarefa
-Copy code
-POST /
-Cria uma nova tarefa com base nos dados fornecidos.
 
-Formato de solicitação
-css
-Copy code
+
+POST /
+
 Content-Type: application/json
 
 {
     "title": "Título da tarefa",
     "description": "Descrição da tarefa"
 }
+
 Exemplo de resposta (sucesso)
-makefile
-Copy code
 Status: 200 OK
 Content-Type: application/json
 
 {
     "message": "Tarefa criada com sucesso!"
 }
+
 Exemplo de resposta (erro)
-makefile
-Copy code
 Status: 400 Bad Request
 Content-Type: application/json
 
 {
     "error": "Erro ao criar a tarefa: <mensagem de erro>"
 }
-Atualizar uma tarefa existente
-Copy code
-PUT /
-Atualiza os dados de uma tarefa existente com base no ID fornecido.
 
-Formato de solicitação
-css
-Copy code
+PUT /
+
 Content-Type: application/json
 
 {
@@ -77,47 +75,45 @@ Content-Type: application/json
     "title": "Novo título da tarefa",
     "description": "Nova descrição da tarefa"
 }
+
+
 Exemplo de resposta (sucesso)
-makefile
-Copy code
 Status: 200 OK
 Content-Type: application/json
 
 {
     "message": "Tarefa atualizada com sucesso!"
 }
+
+
 Exemplo de resposta (erro)
-makefile
-Copy code
 Status: 400 Bad Request
 Content-Type: application/json
 
 {
     "error": "Erro ao atualizar a tarefa: <mensagem de erro>"
 }
-Excluir uma tarefa
-bash
-Copy code
+
 DELETE /?id=<ID>
-Exclui a tarefa com o ID fornecido.
 
 Exemplo de resposta (sucesso)
-makefile
-Copy code
 Status: 200 OK
 Content-Type: application/json
 
 {
     "message": "Tarefa excluída com sucesso!"
 }
+
 Exemplo de resposta (erro)
-makefile
-Copy code
 Status: 400 Bad Request
 Content-Type: application/json
 
 {
     "error": "Erro ao excluir a tarefa: <mensagem de erro>"
 }
+
 Considerações Finais
 Essa documentação descreve as principais funcionalidades da API CRUD do "To-Do List" em PHP. Use os exemplos fornecidos para entender como realizar solicitações corretamente e interpretar as respostas.
+
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
