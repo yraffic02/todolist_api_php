@@ -5,6 +5,15 @@ $task = new Task($conn);
 
 $method = $_SERVER['REQUEST_METHOD'];
 
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Resposta para a requisição preflight
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST, PATCH, DELETE');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization');
+    header('Access-Control-Max-Age: 86400'); // 24 horas
+    exit;
+}
+
 
 switch ($method) {
     case 'GET':
